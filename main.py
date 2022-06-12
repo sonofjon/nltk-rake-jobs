@@ -31,4 +31,4 @@ r = Rake()
 r.extract_keywords_from_text(extract_text())
 for rating, keyword in r.get_ranked_phrases_with_scores():
     if rating > 5:
-        print(rating, keyword)
+        print(round(rating), keyword)
