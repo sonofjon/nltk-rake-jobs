@@ -1,6 +1,3 @@
-# python -c "import nltk; nltk.download('punkt')"
-# python -c "import nltk; nltk.download('stopwords')"
-
 from requests_html import HTMLSession
 from rake_nltk import Rake
 
