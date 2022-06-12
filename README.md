@@ -1,6 +1,3 @@
-# Basic RAKE Demo
-
-> code for YouTube Video
-
-Using rake-nltk this looks at keywords in a microphone review.
+# nltk-rake-jobs
+Using rake-nltk to extract keywords from job ads.
 
