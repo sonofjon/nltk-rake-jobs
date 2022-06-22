@@ -14,15 +14,6 @@ def extract_text():
     # return r.html.xpath('/html/body/main/section[2]/div', first=True).text
 
 
-# Swedish example
-# def extract_text():
-#     s = HTMLSession()
-#     url = 'https://www.arbetsgivarverket.se/jobba-statligt/jobb/databasadministrator/'
-#     r = s.get(url)
-#     # Select an element with XPath
-#     return r.html.xpath('/html/body/div/div/div/div[2]/article/div[1]', first=True).text
-
-
 print(extract_text())
 
 r = Rake()
