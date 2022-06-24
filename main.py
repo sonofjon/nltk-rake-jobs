@@ -1,7 +1,9 @@
-from requests_html import HTMLSession
-from rake_nltk import Rake
+#!/usr/bin/env python
 
 import sys, getopt
+
+from requests_html import HTMLSession
+from rake_nltk import Rake
 
 def main(argv):
    url = ''
