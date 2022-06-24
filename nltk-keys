@@ -24,7 +24,7 @@ def main(argv):
    print(f'Analyzing web element matching "{keyword}" at {url}')
 
    extract_text = extract_url_text(url, keyword)
-   print(extract_text())
+   print(extract_text)
 
    r = Rake()
    # r = Rake(language='swedish')
