@@ -6,33 +6,41 @@ from requests_html import HTMLSession
 from rake_nltk import Rake
 
 def main(argv):
-   url = ''
-   keyword = ''
-   try:
-      opts, args = getopt.getopt(argv,"hu:k:",["url=","keyword="])
-   except getopt.GetoptError:
-      print('main.py -u <url> -k <keyword>')
-      sys.exit(2)
-   for opt, arg in opts:
-      if opt in ("-h", "--help"):
-         print('main.py -i <url> -o <keyword>')
-         sys.exit()
-      elif opt in ("-u", "--url"):
-         url = arg
-      elif opt in ("-k", "--keyword"):
-         keyword = arg
-   print(f'Analyzing web element matching "{keyword}" at {url}')
+    url = ''
+    keyword = ''
+    try:
+        opts, args = getopt.getopt(argv,"hu:k:",["url=","keyword="])
+    except getopt.GetoptError:
+       print('main.py -u <url> -k <keyword>')
+       sys.exit(2)
 
-   extract_text = extract_url_text(url, keyword)
-   print(extract_text)
+    for opt, arg in opts:
+        if opt in ("-h", "--help"):
+            print('main.py -i <url> -o <keyword>')
+            sys.exit()
+        elif opt in ("-u", "--url"):
+            url = arg
+        elif opt in ("-k", "--keyword"):
+            keyword = arg
 
-   r = Rake()
-   # r = Rake(language='swedish')
+    print('--------------------------------------------------------------------------------')
+    print(f'Analyzing web element matching "{keyword}" at {url}')
+    print('--------------------------------------------------------------------------------')
 
-   r.extract_keywords_from_text(extract_text)
-   for rating, keyword in r.get_ranked_phrases_with_scores():
-       if rating > 5:
-           print(round(rating), keyword)
+    extract_text = extract_url_text(url, keyword)
+    print(extract_text)
+
+    print('--------------------------------------------------------------------------------')
+    print('Results')
+    print('--------------------------------------------------------------------------------')
+
+    r = Rake()
+    # r = Rake(language='swedish')
+
+    r.extract_keywords_from_text(extract_text)
+    for rating, keyword in r.get_ranked_phrases_with_scores():
+        if rating > 5:
+            print(round(rating), keyword)
 
 
 # English example
@@ -48,4 +56,4 @@ def extract_url_text(url, keyword):
 
 
 if __name__ == "__main__":
-   main(sys.argv[1:])
+    main(sys.argv[1:])
